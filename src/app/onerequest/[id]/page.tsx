@@ -25,6 +25,8 @@ const OneRequest = () => {
   return (
     <>
       <div className={`flex  
+      flex-col
+      sm:flex-row
       bg-emerald-100
       justify-between 
       bg-emerald-100
@@ -35,14 +37,13 @@ const OneRequest = () => {
       border-2 
       border-inherit 
       rounded-md 
-      ${height === false ? 'h-[400px] sm:h-[200px]' : 'sm:h-[300px]'}
+      ${height === false ? 'm-h-[330px] sm:h-[200px]' : 'sm:h-[300px]'}
        mt-[100px]
        transition-[height]
        delay-250
     p-4
-    overflow-hidden
     `}>
-        <div className="flex flex-col items-start w=[50%] p-4">
+        <div className="flex flex-col items-start w-[50%] p-4">
           <p className="text-slate-600 text-xs">
             Обращение № {request[0].numberUser} от {request[0].dateCreate}
           </p>
@@ -50,22 +51,30 @@ const OneRequest = () => {
           <p className="mb-4 text-sm">{request[0].description}</p>
         </div>
 
-        <div className="flex flex-col items-start w=[50%] p-4">
-          <p className="flex mb-4">
-            {request[0].status} <span className={`text-red-600 text-sm ml-2 ${colorStatus(request[0].status)}`}>{request[0].sign === "Ожидает ответа" && <CustomExclamationMark />}</span>
+        <div className="flex flex-col items-start sm:items-end w-[50%] p-4">
+          <p className="flex items-senter mb-4">
+            {request[0].status} 
+            <span className={`text-red-600 
+              text-sm 
+              ml-2 
+              ${colorStatus(request[0].status)}`}>
+              {request[0].sign === "Ожидает ответа" && <CustomExclamationMark />}
+            </span>
           </p>
-          <p className="text-slate-400 text-xs">Крайний срок </p>
+          <p className="text-slate-400 text-xs">Крайний срок</p>
           <p className="mb-4">{request[0].deadline}</p>
           <p className="text-slate-400 text-xs">Решение</p>
           <p className="mb-4">{request[0].solution === '' ? 'Ожидает решения' : request[0].solution}</p>
-          {height &&
+ 
+          {height && 
             <>
               <p className="text-slate-400 text-xs">Услуга</p>
               <p className="mb-4">{request[0].service}</p>
               <p className="text-slate-400 text-xs">Состав услуги</p>
-              <p>{request[0].compositionService}</p>
+              <p>{request[0].compositionService}</p> 
             </>
-          }
+           } 
+ 
         </div>
 
       </div>

@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from 'next/navigation'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CustomCheckbox from "@/customcomponent/CustomCheckbox";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -36,7 +36,9 @@ const formSchema = z.object({
     }),
 });
 
-const Login = () => {
+const CustomLogin = () => {
+
+
 
   const [alertSt, setAlertSt] = useState<boolean>(false);
   const router = useRouter()
@@ -47,6 +49,14 @@ const Login = () => {
       password: "",
     },
   });
+
+  useEffect(() => {
+    if(alertSt) {
+        setTimeout(()=>{
+            setAlertSt(false)
+        }, 1000)
+    }
+  }, [alertSt])
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setAlertSt(false)
@@ -111,4 +121,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default CustomLogin;

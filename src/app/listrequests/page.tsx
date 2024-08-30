@@ -17,7 +17,7 @@ const ListRequests = () => {
 
   return (
     <>
-      <Table>
+      <Table className='mt-4'>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[400px]">тема</TableHead>
