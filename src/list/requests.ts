@@ -5,7 +5,7 @@ export const requests: listRequestsType[] = [
     {
       id: 1,
       user: "gavrilov",
-      topic: "электронная почта",
+      topic: "Электронная почта",
       numberUser: 95708,
       dateCreate: "20.05.2024 15:22",
       dateUpdate: "20.05.2024 17:22",
@@ -16,7 +16,7 @@ export const requests: listRequestsType[] = [
       solution: "",
       service: "Интернет",
       compositionService: "Почта",
-      sign: "Ожидает ответа",
+      sign: "",
     },
     {
       id: 2,
